@@ -1,0 +1,151 @@
+<!DOCTYPE html/* global google *//* global infoWindow */>
+
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="Resources/MainCSS.css"/>
+        <title>Beach buddy</title>
+    </head>
+    
+    <body>
+        <header>
+            <h1>Beach Buddy - West Kirby Beach</h1>
+        </header>
+        
+        <!--Navigation bar: Access each page of the site-->
+        <nav>
+            <ul>
+                <li><a href="Main_Menu_Page.html">Home</a></li>
+                <li><a href="Beach_Buddy_Page.html">Beach Buddy</a></li>
+                <li><a href="Message_Board_Page.html">Message Board</a></li>
+                <li><a href="About_Us_Page.html">About us</a></li>
+                <li><a href="My_Account_Page.html">My Account</a></li>
+                <li><a href="index.html">Log Out</a></li>
+            </ul>
+        </nav>
+    
+        <!--Dropdown box which allows user to select a beach, this takes the 
+        user to a new page.-->
+        <div class="container">
+            <div class="beachSelection">
+                <select name="Select Beach" onchange="location = this.value;">
+                    <option disabled selected value>Select Beach</option>
+                    <option value="Beach_Buddy_Page.html">Formby Beach</option>
+                    <option value="Ainsdale_Beach.html">Ainsdale Beach</option>
+                    <option value="Southport_Beach.html">Southport Beach</option>
+                    <option value="New_Brighton_Beach.html">New Brighton Beach</option>
+                    <option value="Moreton_Beach.html">Moreton Beach</option>
+                    <option value="Hoylake_Beach.html">Hoylake Beach</option>
+                    <option value="West_Kirby_Beach.html">West Kirby Beach</option>
+                </select>
+            </div>
+            
+            <!--Embedded weather information showing details about the Liverpool
+            area, updates periodically-->
+            <div class="WeatherColumn">
+                <a class="weatherwidget-io" href="https://forecast7.com/en/53d41n2d99/liverpool/" data-label_1="LIVERPOOL" data-label_2="Weather" data-theme="original" >LIVERPOOL Weather</a>
+                <script>
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                        if(!d.getElementById(id)){js=d.createElement(s);
+                            js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';
+                            fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+            </div> 
+ 
+            <!--General Information for the beach-->
+            <div class="column middle">
+                <h2>Essential Information - West Kirby Beach</h2>
+                <ul>
+                   <li>Opening times: Open all year round</li> 
+                   <li>Lifeguard cover: Yes</li> 
+                   <li>Parking: You can park along the promenade, but it may be difficult to get a spot. Always check the signs. Parking at Morrisons is for customers only.</li> 
+                   <li>Dog friendly: Yes</li> 
+                   <li>Toilets: The public toilets are currently undergoing a revamp, but Morrisons is happy to help, there maybe a queue though! There is also public toilets on Hilbre Island, if you fancy the walk.</li> 
+                   <li>Local shops: There is a variety of shops, cafes and restaurants</li> 
+                   <li>Ice cream: There is ALWAYS an ice cream van along the promenade</li>
+                </ul>
+            </div>
+             
+            <!--Google maps code. The beaches on this website are shown as 
+            markers on the map alongside nearby medical centres-->
+            <div class="GoogleMap_column">
+                <div id="GoogleMap" style="width:400px;height:400px;background: #1c8adb"></div> 
+                    <script>
+
+                        function myMap() {
+                          var map = new google.maps.Map(document.getElementById('GoogleMap'), {
+                            zoom: 10,
+                            center: {lat: 53.386362, lng: -3.084403}
+                          });
+
+                          setMarkers(map);
+                        }
+
+                        // Data for the markers consisting of a name, a LatLng and a zIndex for the
+                        // order in which these markers should display on top of each other.
+                        // Beaches are shown below alongside the medical centres
+                        var beaches = [
+                                ['Ainsdale Beach', 53.607961, -3.064298],
+                                ['Southport Beach', 53.652873, -3.021608],
+                                ['Formby Beach',53.541072, -3.096406],
+                                ['Hoylake Beach', 53.393585, -3.176424],
+                                ['New Brighton Beach', 53.431109, -3.060987],
+                                ['West Kirby Beach', 53.362586, -3.177502],
+                                ['Moreton Beach', 53.424865, -3.088389],
+                                ['Ainsdale Medical Centre', 53.602342, -3.038838],
+                                ['St Georges Medical Centre', 53.433780, -3.045483],
+                                ['Marine Lake Medical Practice', 53.373612, -3.182413]];
+
+                        function setMarkers(map) {
+                          // Adds markers to the map.
+
+                          // Marker sizes are expressed as a Size of X,Y where the origin of the image
+                          // (0,0) is located in the top left of the image.
+
+                          // Origins, anchor positions and coordinates of the marker increase in the X
+                          // direction to the right and in the Y direction down.
+                          var image = {
+                            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                            // This marker is 20 pixels wide by 32 pixels high.
+                            size: new google.maps.Size(20, 32),
+                            // The origin for this image is (0, 0).
+                            origin: new google.maps.Point(0, 0),
+                            // The anchor for this image is the base of the flagpole at (0, 32).
+                            anchor: new google.maps.Point(0, 32)
+                          };
+                          // Shapes define the clickable region of the icon. The type defines an HTML
+                          // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+                          // The final coordinate closes the poly by connecting to the first coordinate.
+                          var shape = {
+                            coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                            type: 'poly'
+                          };
+                          for (var i = 0; i < beaches.length; i++) {
+                            var beach = beaches[i];
+                            var marker = new google.maps.Marker({
+                              position: {lat: beach[1], lng: beach[2]},
+                              map: map,
+                              icon: image,
+                              shape: shape,
+                              title: beach[0],
+                              zIndex: beach[3]
+                            });
+                          }
+                        }
+                    </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVb-oCSLkFyzGqYi0FDasG0auuzL2p4nE&callback=myMap"></script>
+            </div>         
+        </div>
+        
+        <footer>
+            <p>Created by Computer Science Students at LJMU for the Maritime Coastguard</p>
+        </footer>
+    </body>
+</html>

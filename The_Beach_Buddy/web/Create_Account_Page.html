@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="Resources/MainCSS.css"/>
+        <title>Create A New Account</title>
+    </head>
+    
+    <body>            
+
+        <header>
+            <h1>Welcome to Beach Buddy</h1>
+        </header>
+        
+        <!--Create new user account, does not connect to database currently.-->
+        <div class="create-account-box">  
+            <h1>Create a new account</h1>
+            <form>
+                <p>Name:</p>
+                    <input type="text" name="Name" placeholder="Enter your name"/>
+                <p>Email:</p>
+                    <input type="email" name="email" placeholder="Enter your Email"/>
+                <p>Password:</p>
+                    <input type="password" name="password" placeholder="Enter a Password"/>
+                <p>Date Of Birth:</p>
+                    <input type="text" name="DOB" placeholder="Enter your birthdate (DD/MM/YY)"/>
+                <p>Contact Number:</p>
+                    <input type="tel" name="Contact Number" placeholder="Enter your contact number"/>
+                <p>Emergency contact name:</p>
+                    <input type="text" name="Emergency contact name" placeholder="Enter your emergency contact name"/>
+                <p>Emergency contact number:</p>
+                    <input type="tel" name="Emergency contact number" placeholder="Enter your emergency contact number"/>   
+                <input type="submit" name="submit" value="Create account"/>
+                <a href="index.html">Go Back</a>
+            </form><br>
+        </div>
+        
+        <footer>
+            <p>Created by Computer Science Students at LJMU for the Maritime Coastguard</p>
+        </footer>
+        
+    </body>
+</html>

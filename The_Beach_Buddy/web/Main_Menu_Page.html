@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+           <meta charset="UTF-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+           <link rel="stylesheet" type="text/css" href="Resources/MainCSS.css"/>
+           <title>Main Menu</title>
+    </head>
+       <body>
+           <header>
+               <h1>Welcome to Beach Buddy</h1>
+           </header>
+           
+           <!--Navigation bar: Access each page of the site-->
+           <nav>
+               <ul>
+                   <li><a href="Main_Menu_Page.html">Home</a></li>
+                   <li><a href="Beach_Buddy_Page.html">Beach Buddy</a></li>
+                   <li><a href="Message_Board_Page.html">Message Board</a></li>
+                   <li><a href="About_Us_Page.html">About us</a></li>
+                   <li><a href="My_Account_Page.html">My Account</a></li>
+                   <li><a href="index.html">Log Out</a></li>
+               </ul>
+           </nav>
+
+           <div class="container">
+               <div class="mainRow1">
+                   <p>Welcome to the Beach Buddy application.</p> 
+                   <p>Your very own beach companion who will provide you with all of the information you will require when visiting one of the UK's many beautiful and scenic beaches.</p>
+                   <p>Please only press the SOS button if there is an emergency and you require urgent assistance from the coastguard.</p>
+               </div>
+               <div class="center">
+                <div class="mainRow2">
+                    <a href="Beach_Buddy_Page.html">
+                     <div class="column">
+                         <h2>Beach Buddy</h2>
+                     </div>
+                    </a>
+                    <a href="Message_Board_Page.html">
+                     <div class="column">
+                         <h2>Message Board</h2>
+                     </div>
+                    </a>
+                </div>
+               
+                <!--Clicking the SOS button prompts a popup to show, 
+                asking for confirmation-->
+                <div class="mainRow3">
+                    <button id="popupButton">SOS</button>
+                    <div id="sosPopup" class="popup">
+                      <div class="popupContent">
+                        <span class="close">&times;</span>
+                        <h3>SOS Button Pressed!</h3>
+                        <h3>Send SOS?</h3>
+                        <button id="Yes">Yes</button>
+                        <button id="No">No</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+           <footer>
+               <p>Created by Computer Science Students at LJMU for the Maritime Coastguard</p>
+           </footer>
+           
+           <!--JavaScript for the popup window-->
+           <script>
+                var popup = document.getElementById('sosPopup');
+                var button = document.getElementById("popupButton");
+                var span = document.getElementsByClassName("close")[0];
+
+                button.onclick = function() {
+                    popup.style.display = "block";
+                };
+
+                span.onclick = function() {
+                    popup.style.display = "none";
+                };
+
+                window.onclick = function(event) {
+                    if (event.target === popup) {
+                        popup.style.display = "none";
+                    }
+                };
+           </script>
+       </body>
+</html>
