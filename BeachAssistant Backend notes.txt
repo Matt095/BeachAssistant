@@ -1,5 +1,5 @@
 For this final year group project, we were able to create a mid-fidelity prototype with some functionality of the desired final product.
 We were not able to incorporate a MySQL database into the functionality of the site due to lack of experience and time as well as manpower. 
 Ideally, we would have connected both the website and mobile application via a database. 
-But due to lack of experience on my end and lack of communication on the part of the mobile developer, who had knowledge of PHP, the database was only used with the mobile application.
+But due to lack of experience and time on my end and lack of communication on the part of the mobile developer, who had knowledge of PHP, the database was only used with the mobile application.
 In the future I would like to add more functionality to the site and integrate the database into the site.
